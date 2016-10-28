@@ -33,9 +33,13 @@ $points = $sth->fetchAll();
     <script src="chart.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
-<body style="padding: 0 2.5%">
+<body>
     <h2><?= RANKS[$id - 1] ?></h2>
-    <canvas class="chart" id="canvas"></canvas>
+    <div id="chart-wrapper-wrapper">
+        <div id="chart-wrapper">
+            <canvas class="chart" id="canvas"></canvas>
+        </div>
+    </div>
 </body>
 <script>
     var lineChartData = {
@@ -65,6 +69,12 @@ $points = $sth->fetchAll();
     };
 
     window.onload = function () {
+        var wrapper = document.getElementById('chart-wrapper');
+
+        var width = Math.floor((Math.max(document.documentElement.clientHeight, window.innerHeight || 0) / 9) * 16);
+        width = Math.floor(width + (width / 100 * 4));
+        wrapper.style.width = width + 'px';
+
         var z = document.getElementById("canvas").getContext("2d");
         window.myLine = new Chart(z).Line(lineChartData, {
             responsive: true,

@@ -45,6 +45,11 @@ body {
     .row {
         width: 97%;
     }
+
+    #single-rank {
+        padding: 0 2%
+    }
+
     #last-check, #website-status {
         display: none;
     }
@@ -66,12 +71,20 @@ body {
     .row {
         width: 47%;
     }
+
+    #single-rank {
+        padding: 0 1%
+    }
 }
 
 @media screen and (min-width: 2048px){
     .row {
         width: 24%;
         padding: calc(.5% - 5px) calc(.5% - 5px);
+    }
+
+    #single-rank {
+        padding: 0 .5%
     }
 }
 
@@ -120,4 +133,15 @@ header {
 
 ::-webkit-scrollbar-corner {
     background: #000;
+}
+
+#chart-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#chart-wrapper-wrapper {
+    overflow-x: scroll;
+    max-width: 100%;
+    position: relative;
 }
